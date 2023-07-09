@@ -2,12 +2,12 @@ name: 🚀 Deploy image on push/pull request
 on:
   push:
     branches:
-      - 'main'
+      - 'master'
     tags:
       - 'v*.*.*'
   pull_request:
     branches:
-      - 'main'
+      - 'master'
 jobs:
   build:
     name: 🏗️ Building ${{ github.repository }}
@@ -38,7 +38,7 @@ jobs:
           images: |
             ghcr.io/${{ github.repository }}
           tags: |
-            type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
+            type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'mamasterin') }}
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
